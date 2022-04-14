@@ -6,7 +6,6 @@ import Tarjeta from './Tarjeta';
 import Titulo from './Titulo';
 
 
-
 ReactDOM.render(
   <React.StrictMode>
     <Formulario/>
@@ -18,3 +17,5 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+

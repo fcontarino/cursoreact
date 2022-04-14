@@ -9,23 +9,38 @@ class Formulario extends React.Component {
         }
     }
 
-    AsignarEstados = (atributo, valor) => { //(usuario,fcontarino)
-        let estado = {};
-        estado[atributo] = valor; //estado=(usuario:fcontarino)
-        this.setState(estado);
-    }
+EnviarFormulario=(e)=>{
+    e.preventDefault()
+    console.log('Enviando');
+    //voy a llamar a mi api enviar la informacion
+
+    this.LimpiarFormulario();
+}
+
+LimpiarFormulario = () => {
+    this.setState({
+        usuario:"",
+        clave:""
+    })
+}
+
+AsignarEstados=(e)=>{
+    this.setState({
+        [e.target.name]:e.target.value
+    })
+}
 
     render() {
         return (
             <div>
-                <form>
+                <form onSubmit={this.EnviarFormulario}>
                     <input
                         type="text"
                         id="usuario"
                         name="usuario"
                         required={true}
                         value={this.state.usuario}
-                        onChange={(e) => { this.AsignarEstados(e.target.name, e.target.value) }}
+                        onChange={this.AsignarEstados}
                     />
                     <br /> <br />
                     <input
@@ -34,12 +49,12 @@ class Formulario extends React.Component {
                         name="clave"
                         required={true}
                         value={this.state.clave}
-                        onChange={(e) => { this.AsignarEstados(e.target.name, e.target.value) }}
+                        onChange={this.AsignarEstados}
 
                     />
                     <br /> <br />
-                    <button>Enviar</button>
-                    <button>Cancelar</button>
+                    <button type="submit">Enviar</button>
+                    <button type="reset" onClick={this.LimpiarFormulario}>Cancelar</button>
                 </form>
 
             </div>
