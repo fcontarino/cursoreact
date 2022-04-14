@@ -9,6 +9,7 @@ class Formulario extends React.Component {
         }
     }
 
+    AsignarInput = () =>{}
 
     render() {
         return (
