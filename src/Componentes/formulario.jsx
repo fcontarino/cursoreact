@@ -1,15 +1,19 @@
 import React from "react";
 
 class Formulario extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            usuario:'',
-            clave:''
+            usuario: '',
+            clave: ''
         }
     }
 
-    AsignarInput = () =>{}
+    AsignarEstados = (atributo, valor) => { //(usuario,fcontarino)
+        let estado = {};
+        estado[atributo] = valor; //estado=(usuario:fcontarino)
+        this.setState(estado);
+    }
 
     render() {
         return (
@@ -21,7 +25,7 @@ class Formulario extends React.Component {
                         name="usuario"
                         required={true}
                         value={this.state.usuario}
-                        onChange={(e)=>{this.setState({usuario:e.target.value})}}
+                        onChange={(e) => { this.AsignarEstados(e.target.name, e.target.value) }}
                     />
                     <br /> <br />
                     <input
@@ -30,7 +34,8 @@ class Formulario extends React.Component {
                         name="clave"
                         required={true}
                         value={this.state.clave}
-                        onChange={(e)=>{this.setState({clave:e.target.value})}}
+                        onChange={(e) => { this.AsignarEstados(e.target.name, e.target.value) }}
+
                     />
                     <br /> <br />
                     <button>Enviar</button>
