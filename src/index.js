@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Formulario from './Componentes/formulario';
 import Users from './Componentes/Users';
 import Tarjeta from './Tarjeta';
 import Titulo from './Titulo';
@@ -8,7 +9,8 @@ import Titulo from './Titulo';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Users/>
+    <Formulario/>
+    {/* <Users/> */}
     {/* <Titulo titulo='Fundacion' subtitulo="Triologia asimov" parrafo='Blablabla1'/>
     <Titulo titulo='Fundacion2' subtitulo="Triologia asimov2" parrafo='Blablabla2'/>
     <Tarjeta descripcion='Federico Contarino' usuario="fcontarino" correo="facontarino@gmail.com"/>
